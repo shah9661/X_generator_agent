@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_USER: tweet_user
+      POSTGRES_PASSWORD: tweet_pass
+      POSTGRES_DB: tweet_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - tweet_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  tweet_postgres_data:
